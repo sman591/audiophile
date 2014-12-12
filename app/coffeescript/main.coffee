@@ -1,5 +1,6 @@
 $(document).ready ->
   $("#nav").localScroll 800
+  $(".continue").localScroll 800
 
   #.parallax(xPosition, speedFactor, outerHeight) options:
   #xPosition - Horizontal position of the element
