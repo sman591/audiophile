@@ -21,18 +21,23 @@ ul
 img
   border: 0
 
-h1, #pixels
+h1, h2, h3
   font-family: Avenir, Verdana, serif
-  font-size-adjust: 0.40
   font-weight: 200
+
+h1, #pixels
+  font-size-adjust: 0.40
   font-size: 35px
   text-transform: uppercase
 
 h2
-  font-family: "Beau Sans Pro Book", Verdana, sans-serif
-  font-size-adjust: 0.531
-  font-weight: 500
-  font-style: normal
+  font-size: 35px
+  text-transform: uppercase
+
+h3
+  font-size: 25px
+  font-weight: 800
+  text-transform: uppercase
 
 #header h1, #pixels
   color: #48941A
@@ -57,36 +62,59 @@ h2
   li
     margin: 0 0 15px 0
 
-#header, #intro, #second
+#header, #intro, #factors
   width: 100%
 
 #intro
   background: url(/images/firstBG.jpg) 50% 0 no-repeat fixed
   color: #000
-  height: 900px
+  height: 700px
   margin: 0 auto
   padding: 100px 0
-  h1
-    text-transform: uppercase
-    font-family: Avenir
-    font-weight: 200
-    font-size: 35px
+  .continue
+    a, a:visited
+      color: #000
+    a:hover
+      color: #0bf
+    a:active
+      color: #09d
 
-#second
-  background: url(/images/secondBG.jpg) 50% 0 no-repeat fixed
+
+#factors
+  background: url(/images/factorsBG.jpg) 50% 0 no-repeat fixed
   color: white
   height: 1300px
   margin: 0 auto
   overflow: hidden
   padding: 0
   .bg
-    background: url(/images/trainers.png) 50% 0 no-repeat fixed
+    background: url(/images/headphones.png) 50% 0 no-repeat fixed
     height: 1300px
     margin: 0 auto
     padding: 0
     position: absolute
     width: 900px
-    z-index: 200
+  .story
+    +text-shadow(rgba(black, 0.2) 1px 1px 0, rgba(black, 0.2) 2px 2px 0, rgba(black, 0.2) 3px 3px 0)
+
+.factor
+  .lead
+    font-size: 40px
+    display: inline-block
+  h3
+    margin-left: 10px
+    margin-bottom: 20px
+    display: inline-block
+    .fa
+      margin-left: 10px
+    span
+      display: none
+      font-size: 13px
+      +text-shadow(none)
+    a:hover span
+      display: inline
+
+  clear: both
 
 #third
   background: url(/images/thirdBG.jpg) 50% 0 no-repeat fixed
@@ -113,7 +141,19 @@ h2
 .continue
   margin-top: 1em
   font-size: 40px
-  a, a:visited
-    color: #000
   a:hover
-    color: #0af
+    margin-bottom: -8px
+
+.more
+  font-size: 1.15em
+  .fa
+    margin-left: 10px
+    margin-right: 5px
+
+a, a:visited
+  color: #fff
+  text-decoration: none
+a:hover
+  color: #0bf
+a:active
+  color: #09d
