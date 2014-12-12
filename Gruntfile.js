@@ -28,18 +28,14 @@ module.exports = function(grunt){
         }]
       }
     },
-    sass: {
+    compass: {
       dist: {
         options: {
-          bundleExec: true
-        },
-        files: [{
-          expand: true,
-          cwd: 'app/stylesheets',
-          src: ['**/*.sass'],
-          dest: 'public/stylesheets',
-          ext: '.css'
-        }]
+          bundleExec: true,
+          sassDir: 'app/stylesheets',
+          cssDir: 'public/stylesheets',
+          environment: 'production'
+        }
       }
     },
     haml: {
@@ -66,7 +62,7 @@ module.exports = function(grunt){
       },
       styles: {
         files: ['app/stylesheets/**/*.sass'],
-        tasks: ['sass'],
+        tasks: ['compass'],
         options: {
           livereload: true,
         }
@@ -85,9 +81,9 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-haml2html');
 
-  grunt.registerTask('build', ['clean', 'coffee', 'sass', 'haml']);
+  grunt.registerTask('build', ['clean', 'coffee', 'compass', 'haml']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 };
