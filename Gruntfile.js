@@ -59,15 +59,24 @@ module.exports = function(grunt){
     watch: {
       coffee: {
         files: ['app/coffeescript/**/*.coffee'],
-        tasks: ['coffee']
+        tasks: ['coffee'],
+        options: {
+          livereload: true,
+        }
       },
       styles: {
         files: ['app/stylesheets/**/*.sass'],
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+          livereload: true,
+        }
       },
       haml: {
         files: ['app/views/**/*.haml'],
-        tasks: ['haml']
+        tasks: ['haml'],
+        options: {
+          livereload: true,
+        }
       }
     }
   });
