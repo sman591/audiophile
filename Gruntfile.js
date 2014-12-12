@@ -74,6 +74,12 @@ module.exports = function(grunt){
           livereload: true,
         }
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'public'
+      },
+      src: ['**']
     }
   });
 
@@ -83,6 +89,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-haml2html');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('build', ['clean', 'coffee', 'compass', 'haml']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
