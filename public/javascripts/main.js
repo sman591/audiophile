@@ -4,5 +4,5 @@ $(document).ready(function() {
   $("#intro").parallax("50%", 0.1);
   $("#factors").parallax("50%", 0.1);
   $(".bg").parallax("50%", 0.4);
-  $("#third").parallax("50%", 0.3);
+  $("#community").parallax("50%", 0.3);
 });
