@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var HighchartsDefaults;
   $("#nav").localScroll(800);
   $(".continue").localScroll(800);
   $("#intro").parallax("50%", 0.1);
@@ -9,73 +10,88 @@ $(document).ready(function() {
   Highcharts.getOptions().plotOptions.pie.colors = (function() {
     var base, colors, i;
     colors = [];
-    base = Highcharts.getOptions().colors[0];
+    base = Highcharts.getOptions().colors[1];
     i = void 0;
     i = 0;
     while (i < 10) {
-      colors.push(Highcharts.Color(base).brighten((i - 3) / 20).get());
+      colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
       i += 1;
     }
     return colors;
   })();
+  HighchartsDefaults = {
+    chart: {
+      backgroundColor: 'rgba(0,0,0,0)',
+      plotBorderWidth: null,
+      style: {
+        fontFamily: "Helvetica Neue, Helvetica, Arial, serif"
+      }
+    },
+    title: {
+      style: {
+        fontFamily: "museo-sans, Avenir, Helvetica Neue, Helvetica, Arial, serif",
+        color: "#fff"
+      }
+    },
+    tooltip: {
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+      shadow: false,
+      style: {
+        textShadow: false
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        shadow: false,
+        dataLabels: {
+          enabled: false
+        }
+      }
+    },
+    credits: {
+      enabled: false
+    }
+  };
   return $(function() {
-    $("#chart1").highcharts({
-      chart: {
-        backgroundColor: 'rgba(0,0,0,0)',
-        plotBorderWidth: null
-      },
-      title: false,
-      tooltip: {
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
-        shadow: false
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: "pointer",
-          shadow: false,
-          dataLabels: {
-            enabled: false
-          }
-        }
+    $("#chart1").highcharts($().extend(true, HighchartsDefaults, {
+      title: {
+        text: "Education"
       },
       series: [
         {
           type: "pie",
           name: "Community Population",
-          innerSize: '50%',
-          data: [["None", 0.8], ["High school or equivalent", 18.6], ["Postgraduate", 37.1], ["College or equivalent", 43.5]]
+          data: [
+            ["None", 0.8], ["High school or equivalent", 18.6], ["Postgraduate", 37.1], {
+              name: "College or equivalent",
+              y: 43.5,
+              sliced: true,
+              selected: true
+            }
+          ]
         }
       ]
-    });
-    $("#chart2").highcharts({
-      chart: {
-        backgroundColor: 'rgba(0,0,0,0)',
-        plotBorderWidth: null
-      },
-      title: false,
-      tooltip: {
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
-        shadow: false
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: "pointer",
-          shadow: false,
-          dataLabels: {
-            enabled: false
-          }
-        }
+    }));
+    $("#chart2").highcharts($().extend(true, HighchartsDefaults, {
+      title: {
+        text: "Profession"
       },
       series: [
         {
           type: "pie",
           name: "Community Population",
-          innerSize: '50%',
-          data: [["Unskilled Worker", 1.1], ["Foreman/woman, craftsman/woman", 2.4], ["Retired", 4.2], ["Full-time student", 5.0], ["Clerical, salesperson", 5.6], ["Musician, writer, artist, other", 6.4], ["Service worker, skilled worker", 6.5], ["Official, manager, or proprietor", 11.6], ["Professional, Technical", 57.2]]
+          data: [
+            ["Unskilled Worker", 1.1], ["Foreman/woman, craftsman/woman", 2.4], ["Retired", 4.2], ["Full-time student", 5.0], ["Clerical, salesperson", 5.6], ["Musician, writer, artist, other", 6.4], ["Service worker, skilled worker", 6.5], ["Official, manager, or proprietor", 11.6], {
+              name: "Professional, Technical",
+              y: 57.2,
+              sliced: true,
+              selected: true
+            }
+          ]
         }
       ]
-    });
+    }));
   });
 });
