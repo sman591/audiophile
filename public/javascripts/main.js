@@ -5,6 +5,18 @@ $(document).ready(function() {
   $("#factors").parallax("50%", 0.1);
   $(".bg").parallax("50%", 0.4);
   $("#community").parallax("50%", 0.3);
+  Highcharts.getOptions().plotOptions.pie.colors = (function() {
+    var base, colors, i;
+    colors = [];
+    base = Highcharts.getOptions().colors[0];
+    i = void 0;
+    i = 0;
+    while (i < 10) {
+      colors.push(Highcharts.Color(base).brighten((i - 3) / 20).get());
+      i += 1;
+    }
+    return colors;
+  })();
   return $(function() {
     $("#chart1").highcharts({
       chart: {

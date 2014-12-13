@@ -11,6 +11,17 @@ $(document).ready ->
   $(".bg").parallax "50%", 0.4
   $("#community").parallax "50%", 0.3
 
+  Highcharts.getOptions().plotOptions.pie.colors = (->
+    colors = []
+    base = Highcharts.getOptions().colors[0]
+    i = undefined
+    i = 0
+    while i < 10
+      colors.push Highcharts.Color(base).brighten((i - 3) / 20).get()
+      i += 1
+    colors
+  )()
+
   $ ->
     $("#chart1").highcharts
       chart:
