@@ -14,35 +14,47 @@ $(document).ready ->
 
   Highcharts.getOptions().plotOptions.pie.colors = (->
     colors = []
-    base = Highcharts.getOptions().colors[0]
+    base = Highcharts.getOptions().colors[1]
     i = undefined
     i = 0
     while i < 10
-      colors.push Highcharts.Color(base).brighten((i - 3) / 20).get()
+      colors.push Highcharts.Color(base).brighten((i - 3) / 7).get()
       i += 1
     colors
   )()
 
-  $ ->
-    $("#chart1").highcharts
-      chart:
-        backgroundColor: 'rgba(0,0,0,0)'
-        plotBorderWidth: null
-      title: false
-      tooltip:
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+  HighchartsDefaults =
+    chart:
+      backgroundColor: 'rgba(0,0,0,0)'
+      plotBorderWidth: null
+      style:
+        fontFamily: "Helvetica Neue, Helvetica, Arial, serif"
+    title:
+      style:
+        fontFamily: "museo-sans, Avenir, Helvetica Neue, Helvetica, Arial, serif"
+        color: "#fff"
+    tooltip:
+      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+      shadow: false
+      style:
+        textShadow: false
+    plotOptions:
+      pie:
+        allowPointSelect: true
+        cursor: "pointer"
         shadow: false
-      plotOptions:
-        pie:
-          allowPointSelect: true
-          cursor: "pointer"
-          shadow: false
-          dataLabels:
-            enabled: false
+        dataLabels:
+          enabled: false
+    credits:
+      enabled: false
+
+  $ ->
+    $("#chart1").highcharts $().extend true, HighchartsDefaults,
+      title:
+        text: "Education"
       series: [
         type: "pie"
         name: "Community Population"
-        innerSize: '50%'
         data: [
           [
             "None"
@@ -56,31 +68,20 @@ $(document).ready ->
             "Postgraduate"
             37.1
           ]
-          [
-            "College or equivalent"
-            43.5
-          ]
+          {
+            name: "College or equivalent"
+            y: 43.5
+            sliced: true
+            selected: true
+          }
         ]
       ]
-    $("#chart2").highcharts
-      chart:
-        backgroundColor: 'rgba(0,0,0,0)'
-        plotBorderWidth: null
-      title: false
-      tooltip:
-        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
-        shadow: false
-      plotOptions:
-        pie:
-          allowPointSelect: true
-          cursor: "pointer"
-          shadow: false
-          dataLabels:
-            enabled: false
+    $("#chart2").highcharts $().extend true, HighchartsDefaults,
+      title:
+        text: "Profession"
       series: [
         type: "pie"
         name: "Community Population"
-        innerSize: '50%'
         data: [
           [
             "Unskilled Worker"
@@ -114,10 +115,12 @@ $(document).ready ->
             "Official, manager, or proprietor"
             11.6
           ]
-          [
-            "Professional, Technical"
-            57.2
-          ]
+          {
+            name: "Professional, Technical"
+            y: 57.2
+            sliced: true
+            selected: true
+          }
         ]
       ]
 
