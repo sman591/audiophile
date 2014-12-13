@@ -10,6 +10,7 @@ $(document).ready ->
   $("#factors").parallax "50%", 0.1
   $(".bg").parallax "50%", 0.4
   $("#community").parallax "50%", 0.3
+  $("#tryit").parallax "50%", 0.3
 
   Highcharts.getOptions().plotOptions.pie.colors = (->
     colors = []

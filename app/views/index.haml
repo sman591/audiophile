@@ -17,16 +17,19 @@
   %body
     %ul#nav
       %li
-        %a{href: "#intro", title: "Next Section"}
+        %a{href: "#intro", title: "Intro"}
           %img{alt: "Link", src: "images/dot.png"}/
       %li
-        %a{href: "#factors", title: "Next Section"}
+        %a{href: "#factors", title: "Factors"}
           %img{alt: "Link", src: "images/dot.png"}/
       %li
-        %a{href: "#community", title: "Next Section"}
+        %a{href: "#community", title: "Community"}
           %img{alt: "Link", src: "images/dot.png"}/
       %li
-        %a{href: "#fifth", title: "Next Section"}
+        %a{href: "#tryit", title: "Try It"}
+          %img{alt: "Link", src: "images/dot.png"}/
+      %li
+        %a{href: "#fifth", title: "About & Credits"}
           %img{alt: "Link", src: "images/dot.png"}/
     #intro
       .story
@@ -77,9 +80,27 @@
         .float-left
           %h2 Community
           %p The audiophile community is vast, diverse, and growing. While it once was limited to those aiming to improve recorded audio, it now covers a large community more generally acceptable as "people who love sound."
+          %p.continue
+            %a{href: "#tryit", title: "Next Section"}
+              %i.fa.fa-angle-double-down
         .charts
           #chart1.chart
           #chart2.chart
+    #tryit
+      .story
+        .float-left
+          %h2 See For Yourself
+          %p Below are two audio files, one high quality and one low quality. Take a listen- do you notice the difference?
+          .files
+            %p
+              %a
+                %i.fa.fa-play-circle
+                Audio file #1
+            %p
+              %a
+                %i.fa.fa-play-circle
+                Audio file #2
+
     #fifth
       .story
         %h2 About
