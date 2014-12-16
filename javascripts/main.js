@@ -14,6 +14,9 @@ $(document).ready(function() {
   $(".bg").parallax("50%", 0.4);
   $("#community").parallax("50%", 0.3);
   $("#tryit").parallax("50%", 0.3);
+  $('#size-notice button').on('click', function() {
+    return $('#size-notice').slideUp(500);
+  });
   $('.factor a').each(function() {
     return $(this).on('click', function() {
       toggleFactor($(this).attr('href'));
