@@ -7,6 +7,35 @@ body
   min-width: 980px
   padding: 0
 
+a, a:visited
+  color: #09c
+  text-decoration: none
+a:hover
+  color: #007595
+a:active
+  color: #057
+
+a.reveal
+  color: #000
+  &:visited
+    color: #000
+  &:hover
+    color: #0bf
+  &:active
+    color: #09d
+
+.white
+  color: #fff
+  +text-shadow(rgba(black, 0.2) 1px 1px 0, rgba(black, 0.2) 2px 2px 0)
+  a.reveal
+    color: #fff
+    &:visited
+      color: #fff
+    &:hover
+      color: #0bf
+    &:active
+      color: #09d
+
 p
   margin: 0 0 20px 0
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
@@ -73,18 +102,9 @@ h3
   height: 700px
   margin: 0 auto
   padding: 100px 0
-  .continue
-    a, a:visited
-      color: #000
-    a:hover
-      color: #0bf
-    a:active
-      color: #09d
-
 
 #factors
   background: url(../images/factorsBG.jpg) 50% 0 no-repeat fixed
-  color: white
   height: 1300px
   margin: 0 auto
   overflow: hidden
@@ -119,15 +139,12 @@ h3
   display: none
   background: rgba(0,0,0,.4)
   padding: 1px 30px 20px
-  margin: -1px -30px -20px
+  margin: -1px 0 -20px -60px
 
 #community
   background: url(../images/communityBG.jpg) 50% 0 no-repeat fixed
-  color: white
   height: 800px
   padding: 100px 0 0 0
-  .story
-    +text-shadow(rgba(black, 0.3) 1px 1px 0, rgba(black, 0.3) 2px 2px 0, rgba(black, 0.3) 3px 3px 0)
 
 .charts
   margin-left: 400px
@@ -145,12 +162,6 @@ h3
   color: #000
   height: 800px
   padding: 100px 0 0 0
-  a, a:visited
-    color: #000
-  a:hover
-    color: #0bf
-  a:active
-    color: #09d
 
 #about
   background: #ccc
@@ -179,11 +190,3 @@ h3
   .fa
     margin-left: 10px
     margin-right: 5px
-
-a, a:visited
-  color: #fff
-  text-decoration: none
-a:hover
-  color: #0bf
-a:active
-  color: #09d
