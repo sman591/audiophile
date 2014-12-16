@@ -1,3 +1,10 @@
+var toggleFactor;
+
+toggleFactor = function(factorID) {
+  $('.factor-detail:visible').fadeOut(200);
+  return $(factorID).delay(200).fadeIn(500);
+};
+
 $(document).ready(function() {
   var HighchartsDefaults;
   $("#nav").localScroll(800);
@@ -7,6 +14,12 @@ $(document).ready(function() {
   $(".bg").parallax("50%", 0.4);
   $("#community").parallax("50%", 0.3);
   $("#tryit").parallax("50%", 0.3);
+  $('.factor a').each(function() {
+    return $(this).on('click', function() {
+      toggleFactor($(this).attr('href'));
+      return false;
+    });
+  });
   Highcharts.getOptions().plotOptions.pie.colors = (function() {
     var base, colors, i;
     colors = [];

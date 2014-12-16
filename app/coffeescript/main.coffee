@@ -1,3 +1,7 @@
+toggleFactor = (factorID) ->
+  $('.factor-detail:visible').fadeOut(200)
+  $(factorID).delay(200).fadeIn(500)
+
 $(document).ready ->
   $("#nav").localScroll 800
   $(".continue").localScroll 800
@@ -11,6 +15,11 @@ $(document).ready ->
   $(".bg").parallax "50%", 0.4
   $("#community").parallax "50%", 0.3
   $("#tryit").parallax "50%", 0.3
+
+  $('.factor a').each ->
+    $(this).on 'click', ->
+      toggleFactor $(this).attr('href')
+      false
 
   Highcharts.getOptions().plotOptions.pie.colors = (->
     colors = []
