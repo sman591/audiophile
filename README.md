@@ -17,8 +17,8 @@ Based on [Ian Lunn](http://www.ianlunn.co.uk/)'s [jQuery Parralax](https://githu
 3. Clone the repo & install dependencies
 
   ```bash
-  $ git clone git@github.com:rit-assassins/arit-www.git
-  $ cd arit-www
+  $ git clone git@github.com:sman591/audiophile.git
+  $ cd audiophile
   $ bundle install
   $ npm install
   ```
